@@ -1,12 +1,25 @@
-let levelling = require('../lib/levelling')
-let { MessageType } = require('@adiwajshing/baileys')
-let fs = require('fs')
-let path = require('path')
-let fetch = require('node-fetch')
-let moment = require('moment-timezone')
-const defaultMenu = {
+const bot = require('../lib/events')
+const {
+	ctt,
+	addSpace,
+	textToStylist,
+	PREFIX,
+	getUptime,
+	PLUGINS,
+	getRam,
+} = require('../lib/')
+const { VERSION } = require('../config')
+bot.addCommand(
+	{
+		pattern: 'help ?(.*)',
+		fromMe: true,
+		dontAddCommandList: true,
+	},
+	async (message, match) => {
+		const date = new Date()
+		let CMD_HELP = {
   before: `
-  〔 ɴᴀɴᴅʜᴜᴛᴛʏ ᴠ3 〕
+  〔 ❤Vihaga Thiksana❤ ᴠ1.1 〕
 ➪Hai, %name!
 ➪Uptime: *%uptime (%muptime)*
 ➪Developer:ᴀᴊᴍᴀʟ ᴀɴᴅ ᴀᴄʜᴜ
